@@ -11,7 +11,7 @@ var re = /-moz-user-select:\s*none;?/;
 exports.fn = function(item, params) {
   if (params && params.fill) {
     let fillColor = params.fill;
-    console.log('got fill param: ', fillColor);
+    // console.log('got fill param: ', fillColor);
     if (item.elem && item.hasAttr('fill')) {
       let attr = item.attr('fill');
       // TODO: could normalize to hex triplet

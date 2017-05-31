@@ -19,7 +19,6 @@ var lastSvg;
 exports.fn = function(item) {
   let keep = handleElement(item);
 
-  console.log('keep item %s: %s', item.elem, keep);
   return keep === undefined ? true : keep;
 }
 
@@ -34,7 +33,7 @@ function handleElement(item) {
     if (item.hasAttr('clip-path')) {
       let match = item.attr('clip-path').value.match(/^url\(#([^\)]+)\)/);
       if (match && match[1] in uselessClipPathIds) {
-        console.log('removing matching clip-path: ' + match[1]);
+        console.log('removeUselessClipPaths: removing matching clip-path: ' + match[1]);
         item.removeAttr('clip-path');
       }
     }
@@ -76,14 +75,14 @@ function handleElement(item) {
         if (bounds.w < width || bounds.h < height) {
           hasUsefulPath = true;
         }
-        console.log('clipPath: %s, bounds: ', clipId, bounds, width, height);
+        // console.log('clipPath: %s, bounds: ', clipId, bounds, width, height);
       }
     });
     // console.log('returning hasUsefulPath: ', hasUsefulPath);
     if (!hasUsefulPath) {
       uselessClipPathIds[clipId] = item;
     }
-    console.log('removeUselessClipPaths, %s is useful? %s', clipId, hasUsefulPath);
+    // console.log('removeUselessClipPaths, %s is useful? %s', clipId, hasUsefulPath);
     return hasUsefulPath;
   }
   // keep everything else
