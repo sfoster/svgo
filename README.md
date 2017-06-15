@@ -19,7 +19,7 @@ SVGO has a plugin-based architecture, so almost every optimization is a separate
 Today we have:
 
 | Plugin | Description |
-| ------ | ----------- | 
+| ------ | ----------- |
 | [cleanupAttrs](https://github.com/svg/svgo/blob/master/plugins/cleanupAttrs.js) | cleanup attributes from newlines, trailing, and repeating spaces |
 | [removeDoctype](https://github.com/svg/svgo/blob/master/plugins/removeDoctype.js) | remove doctype declaration |
 | [removeXMLProcInst](https://github.com/svg/svgo/blob/master/plugins/removeXMLProcInst.js) | remove XML processing instructions |
@@ -65,6 +65,21 @@ Today we have:
 | [removeScriptElement](https://github.com/svg/svgo/blob/master/plugins/removeScriptElement.js) | remove `<script>` elements (disabled by default) |
 
 Want to know how it works and how to write your own plugin? [Of course you want to](https://github.com/svg/svgo/blob/master/docs/how-it-works/en.md). ([동작방법](https://github.com/svg/svgo/blob/master/docs/how-it-works/ko.md))
+
+
+## Photon Plugins
+
+This clone of the SVGO repo has some plugins specifically for the Firefox icons and animations,
+and for the output we are getting from AfterEffects/Bodymovin. They are not intended or ready for generalized use. These are:
+
+| Plugin | Description |
+| ------ | ----------- |
+| [addLicense](./blob/master/plugins/addLicense.js) | Add a Mozilla license to input file |
+| [removeUselessClipPaths](./blob/master/plugins/removeUselessClipPaths.js) | Remove clipPath elements and references to them that simply clip to the image dimensions |
+| [removeRedundant100pcentStyle](./blob/master/plugins/removeRedundant100pcentStyle.js) | Remove width:100% and height:100% style properties which are implicit |
+| [removeMozUserSelect](./blob/master/plugins/removeMozUserSelect.js) | Remove -moz-user-select:none style properties |
+| [substituteContextFill](./blob/master/plugins/substituteContextFill.js) | Provide a 'fill' param to replace a given color with the value 'context-fill' |
+
 
 
 ## Installation
