@@ -41,7 +41,7 @@ function handleElement(item) {
 
   if (item.isElem(viewBoxElems)) {
     let w = item.hasAttr('width') && item.attr('width').value;
-    let h = item.hasAttr('height') && item.attr('width').value;
+    let h = item.hasAttr('height') && item.attr('height').value;
     if (item.hasAttr('viewBox')) {
       let match = item.attr('viewBox').value.match(regViewBox);
       w = match[1];
